@@ -5,9 +5,11 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-<!--        <service id="Swag\PayPal\Storefront\Framework\Cookie\PayPalCookieProvider"-->
-<!--                 decorates="Shopware\Storefront\Framework\Cookie\CookieProviderInterface">-->
-<!--            <argument type="service" id="Swag\PayPal\Storefront\Framework\Cookie\PayPalCookieProvider.inner"/>-->
-<!--        </service>-->
+        <service id="Crehler\LocalShopsPlugin\Service\LocalShopsService">
+            <argument type="service" id="product.repository"/>
+        </service>
+        <service id="Crehler\LocalShopsPlugin\Entity\Definition\LocalShopEntityDefinition">
+            <tag name="shopware.entity.definition" entity="local_shop"/>
+        </service>
     </services>
 </container>

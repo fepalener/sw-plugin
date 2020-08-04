@@ -1,9 +1,12 @@
 {
     "name": "crehler/local-shops-plugin",
     "type": "shopware-platform-plugin",
+    "version": "1.0.0",
     "license": "MIT",
     "minimum-stability": "dev",
     "require": {
+        "shopware/core": "~6.2",
+        "shopware/storefront": "~6.2"
     },
     "autoload": {
         "psr-4": {
@@ -11,7 +14,7 @@
         }
     },
     "extra": {
-        "shopware-plugin-class": "Crehler\\LocalShopsPlugin\\LocalShops",
+        "shopware-plugin-class": "Crehler\\LocalShopsPlugin\\Bootstrap",
         "label": {
             "en-GB": "Local Shops Plugin",
             "de-DE": "Local Shops Plugin"
