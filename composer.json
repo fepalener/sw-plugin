@@ -1,0 +1,16 @@
+{
+    "name": "crehler/local-shops-plugin",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "Crehler\\LocalShopsPlugin\\": "src/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "Crehler\\LocalShopsPlugin\\LocalShops"
+    }
+}
