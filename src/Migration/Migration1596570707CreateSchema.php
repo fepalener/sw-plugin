@@ -25,7 +25,7 @@ class Migration1596570707CreateSchema extends MigrationStep
                 `contact_phone`           VARCHAR(255) COLLATE utf8mb4_unicode_ci NULL,
                 `created_at`              DATETIME(3) NOT NULL,
                 `updated_at`              DATETIME(3) NULL,
-                PRIMARY KEY (`id`),
+                PRIMARY KEY (`id`)
             ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
         ');
     }
