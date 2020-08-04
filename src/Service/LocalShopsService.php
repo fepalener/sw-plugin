@@ -19,6 +19,9 @@ class LocalShopsService
      */
     public function getLocalShops()
     {
+        /** @var EntityRepositoryInterface $localShopsRepository */
+        $localShopRepository = $this->container->get('local_shop.repository');
+
         // @TODO
         /*
         $this->productRepository->search(

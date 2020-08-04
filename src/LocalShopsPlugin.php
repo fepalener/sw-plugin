@@ -14,7 +14,7 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 use Symfony\Component\Config\FileLocator;
 
-class Bootstrap extends Plugin
+class LocalShopsPlugin extends Plugin
 {
     public function build(ContainerBuilder $container): void
     {
@@ -27,35 +27,45 @@ class Bootstrap extends Plugin
     /**
      * @param InstallContext $installContext
      */
+    /*
     public function install(InstallContext $installContext): void
     {
     }
+    */
 
     /**
      * @param UpdateContext $updateContext
      */
+    /*
     public function update(UpdateContext $updateContext): void
     {
     }
+    */
 
     /**
      * @param ActivateContext $activateContext
      */
+    /*
     public function activate(ActivateContext $activateContext): void
     {
     }
+    */
 
     /**
      * @param DeactivateContext $deactivateContext
      */
+    /*
     public function deactivate(DeactivateContext $deactivateContext): void
     {
     }
+    */
 
     /**
      * @param UninstallContext $uninstallContext
      */
+    /*
     public function uninstall(UninstallContext $uninstallContext): void
     {
     }
+    */
 }

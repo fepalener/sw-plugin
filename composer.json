@@ -14,7 +14,7 @@
         }
     },
     "extra": {
-        "shopware-plugin-class": "Crehler\\LocalShopsPlugin\\Bootstrap",
+        "shopware-plugin-class": "Crehler\\LocalShopsPlugin\\LocalShopsPlugin",
         "label": {
             "en-GB": "Local Shops Plugin",
             "de-DE": "Local Shops Plugin"

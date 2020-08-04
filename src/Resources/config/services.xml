@@ -6,7 +6,7 @@
 
     <services>
         <service id="Crehler\LocalShopsPlugin\Service\LocalShopsService">
-            <argument type="service" id="product.repository"/>
+            <argument type="service" id="local_shop.repository"/>
         </service>
         <service id="Crehler\LocalShopsPlugin\Entity\Definition\LocalShopEntityDefinition">
             <tag name="shopware.entity.definition" entity="local_shop"/>
