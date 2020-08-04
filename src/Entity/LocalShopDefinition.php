@@ -1,9 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Crehler\LocalShopsPlugin\Entity\Definition;
+namespace Crehler\LocalShopsPlugin\Entity;
 
-use Crehler\LocalShopsPlugin\Entity\Collection\LocalShopEntityCollection;
-use Crehler\LocalShopsPlugin\Entity\LocalShopEntity;
+use Crehler\LocalShopsPlugin\Entity\Collection\LocalShopCollection;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\PrimaryKey;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Required;
@@ -11,7 +10,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\IdField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
 
-class LocalShopEntityDefinition extends EntityDefinition
+class LocalShopDefinition extends EntityDefinition
 {
     public const ENTITY_NAME = 'local_shop';
 
@@ -27,7 +26,7 @@ class LocalShopEntityDefinition extends EntityDefinition
 
     public function getCollectionClass(): string
     {
-        return LocalShopEntityCollection::class;
+        return LocalShopCollection::class;
     }
 
     protected function defineFields(): FieldCollection
@@ -39,7 +38,7 @@ class LocalShopEntityDefinition extends EntityDefinition
             new StringField('address_zip_code',        'addressZipCode'),
             new StringField('address_street',          'addressStreet'),
             new StringField('address_building_number', 'addressBuildingNumber'),
-            new StringField('contactPhone',            'contact_phone')
+            new StringField('contactPhone',            'contactPhone')
         ]);
     }
 }
