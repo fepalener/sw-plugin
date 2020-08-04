@@ -2,7 +2,6 @@
 
 namespace Crehler\LocalShopsPlugin\Entity;
 
-use Crehler\LocalShopsPlugin\Entity\Collection\LocalShopCollection;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\PrimaryKey;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Required;
@@ -33,12 +32,12 @@ class LocalShopDefinition extends EntityDefinition
     {
         return new FieldCollection([
             (new IdField('id', 'id'))->addFlags(new PrimaryKey(), new Required()),
-            new StringField('name',                    'name'),
-            new StringField('address_city',            'addressCity'),
-            new StringField('address_zip_code',        'addressZipCode'),
-            new StringField('address_street',          'addressStreet'),
-            new StringField('address_building_number', 'addressBuildingNumber'),
-            new StringField('contactPhone',            'contactPhone')
+            (new StringField('name', 'name', 255))->addFlags(new Required()),
+            new StringField('address_city', 'addressCity', 255),
+            new StringField('address_zip_code', 'addressZipCode', 32),
+            new StringField('address_street', 'addressStreet', 255),
+            new StringField('address_building_number', 'addressBuildingNumber', 32),
+            new StringField('contactPhone', 'contactPhone', 16)
         ]);
     }
 }
