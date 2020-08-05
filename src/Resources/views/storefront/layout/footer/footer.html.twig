@@ -6,9 +6,9 @@
     {% if page.footer.extensions.local_shops_list|length %}
         <div class="col-md-4 footer-column">
             <h3>Local shops list</h3>
-            {%  for shop in page.footer.extensions.local_shops_list %}
+            {% for shop in page.footer.extensions.local_shops_list %}
                 <p>{{ shop.name }} - {{ shop.contactPhone }}</p>
-            {%  endfor %}
+            {% endfor %}
         </div>
     {% endif %}
 {% endblock %}
