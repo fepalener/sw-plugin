@@ -2,6 +2,7 @@
 
 namespace Crehler\LocalShopsPlugin\Entity\LocalShop;
 
+use Crehler\LocalShopsPlugin\Entity\LocalShopProduct\LocalShopProductCollection;
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityIdTrait;
 use Shopware\Core\Content\Product\ProductCollection;
@@ -16,27 +17,27 @@ class LocalShopEntity extends Entity
     protected $name;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $addressCity;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $addressZipCode;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $addressStreet;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $addressBuildingNumber;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $contactPhone;
 
@@ -44,6 +45,11 @@ class LocalShopEntity extends Entity
      * @var ProductCollection|null
      */
     protected $products;
+
+    /**
+     * @var LocalShopProductCollection|null
+     */
+    protected $shopProducts;
 
     /**
      * @return string
@@ -62,9 +68,9 @@ class LocalShopEntity extends Entity
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressCity(): string
+    public function getAddressCity(): ?string
     {
         return $this->addressCity;
     }
@@ -78,9 +84,9 @@ class LocalShopEntity extends Entity
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressZipCode(): string
+    public function getAddressZipCode(): ?string
     {
         return $this->addressZipCode;
     }
@@ -94,9 +100,9 @@ class LocalShopEntity extends Entity
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressStreet(): string
+    public function getAddressStreet(): ?string
     {
         return $this->addressStreet;
     }
@@ -110,9 +116,9 @@ class LocalShopEntity extends Entity
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getAddressBuildingNumber(): string
+    public function getAddressBuildingNumber(): ?string
     {
         return $this->addressBuildingNumber;
     }
@@ -126,9 +132,9 @@ class LocalShopEntity extends Entity
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getContactPhone(): string
+    public function getContactPhone(): ?string
     {
         return $this->contactPhone;
     }
@@ -155,5 +161,21 @@ class LocalShopEntity extends Entity
     public function setProducts(ProductCollection $products): void
     {
         $this->products = $products;
+    }
+
+    /**
+     * @return LocalShopProductCollection|null
+     */
+    public function getShopProducts(): ?LocalShopProductCollection
+    {
+        return $this->shopProducts;
+    }
+
+    /**
+     * @param LocalShopProductCollection|null $shopProducts
+     */
+    public function setShopProducts(?LocalShopProductCollection $shopProducts): void
+    {
+        $this->shopProducts = $shopProducts;
     }
 }

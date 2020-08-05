@@ -25,6 +25,12 @@
                 <sw-field :label="$t('local-shop.detail.addressBuildingNumberLabel')" v-model="entity.addressBuildingNumber"></sw-field>
                 <sw-field :label="$t('local-shop.detail.contactPhoneLabel')" v-model="entity.contactPhone"></sw-field>
 
+                {#
+                <sw-one-to-many-grid
+                    :collection="entity.shopProducts">
+                </sw-one-to-many-grid>
+                #}
+
                 <sw-entity-many-to-many-select
                     :localMode="entity.isNew()"
                     :label="$t('local-shop.detail.assignProductsLabel')"

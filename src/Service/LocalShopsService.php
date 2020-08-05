@@ -6,6 +6,7 @@ use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult;
 
 class LocalShopsService
 {
@@ -17,41 +18,33 @@ class LocalShopsService
      */
     private $localShopsProductRepository;
 
-    public function __construct(EntityRepositoryInterface $localShopsRepository)
+    public function __construct(EntityRepositoryInterface $localShopsRepository, EntityRepositoryInterface $localShopsProductsRepository)
     {
-        $this->localShopsRepository = $localShopsRepository;
+        $this->localShopsRepository        = $localShopsRepository;
+        $this->localShopsProductRepository = $localShopsProductsRepository;
     }
 
     /**
      * Zwrócenie listy sklepów
+     *
+     * @param Context $context
+     * @return EntitySearchResult
      */
-    public function getLocalShops()
+    public function getLocalShops(Context $context)
     {
-        /** @var EntityRepositoryInterface $localShopsRepository */
-        $localShopRepository = $this->container->get('local_shop.repository');
-
-
-        // @TODO
-        /*
-        $this->productRepository->search(
-            (new Criteria())->addFilter(new EqualsAnyFilter('name', [
-                'Lorem ipsum',
-                'Dolor sit amet'
-            ])),
-            $context
+        return $this->localShopsRepository->search(
+            new Criteria(), $context
         );
-        */
     }
 
     /**
      * Zwrócenie listy sklepów wraz z podaniem ilości danego produktu ($productId)
      *
      * @param $productId
+     * @param Context $context
      */
-    public function getLocalShopsProductStock($productId)
+    public function getLocalShopsProductStock($productId, Context $context)
     {
-        $context = Context::createDefaultContext();
-
         // @TODO
         $criteria = new Criteria();
         $criteria->addFilter(new EqualsFilter('productId', $productId));
