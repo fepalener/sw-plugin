@@ -28,6 +28,7 @@ class LocalShopsService
      * Zwrócenie listy sklepów
      *
      * @param Context $context
+     *
      * @return EntitySearchResult
      */
     public function getLocalShops(Context $context)
@@ -40,16 +41,19 @@ class LocalShopsService
     /**
      * Zwrócenie listy sklepów wraz z podaniem ilości danego produktu ($productId)
      *
-     * @param $productId
+     * @param string $productId
      * @param Context $context
+     *
+     * @return EntitySearchResult
      */
-    public function getLocalShopsProductStock($productId, Context $context)
+    public function getLocalShopsProductAvailability($productId, Context $context)
     {
-        // @TODO
-        $criteria = new Criteria();
-        $criteria->addFilter(new EqualsFilter('productId', $productId));
-
-        $lineItems = $this->localShopsProductRepository->search($criteria, $context);
+        return $this->localShopsRepository->search(
+            (new Criteria())
+                ->addAssociation('products')
+                ->addFilter(new EqualsFilter('products.id', $productId))
+            , $context
+        );
     }
 
     /**
@@ -60,7 +64,7 @@ class LocalShopsService
      *
      * @return int
      */
-    public function getLocalShopProductQuantity($localShopId, $productId): int
+    public function getLocalShopProductAvailability($localShopId, $productId): int
     {
         // @TODO
         return 0;
