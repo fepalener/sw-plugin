@@ -19,10 +19,10 @@ class Migration1596570707CreateSchema extends MigrationStep
                 `id`                      BINARY(16) NOT NULL,
                 `name`                    VARCHAR(255) COLLATE utf8mb4_unicode_ci NULL,
                 `address_city`            VARCHAR(255) COLLATE utf8mb4_unicode_ci NULL,
-                `address_zip_code`        VARCHAR(255) COLLATE utf8mb4_unicode_ci NULL,
+                `address_zip_code`        VARCHAR(32) COLLATE utf8mb4_unicode_ci NULL,
                 `address_street`          VARCHAR(255) COLLATE utf8mb4_unicode_ci NULL,
-                `address_building_number` VARCHAR(255) COLLATE utf8mb4_unicode_ci NULL,
-                `contact_phone`           VARCHAR(255) COLLATE utf8mb4_unicode_ci NULL,
+                `address_building_number` VARCHAR(32) COLLATE utf8mb4_unicode_ci NULL,
+                `contact_phone`           VARCHAR(16) COLLATE utf8mb4_unicode_ci NULL,
                 `created_at`              DATETIME(3) NOT NULL,
                 `updated_at`              DATETIME(3) NULL,
                 PRIMARY KEY (`id`)

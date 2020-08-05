@@ -2,12 +2,20 @@
 
 namespace Crehler\LocalShopsPlugin\Service;
 
+use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 
 class LocalShopsService
 {
     /** @var EntityRepositoryInterface */
     private $localShopsRepository;
+
+    /**
+     * @var EntityRepositoryInterface
+     */
+    private $localShopsProductRepository;
 
     public function __construct(EntityRepositoryInterface $localShopsRepository)
     {
@@ -21,6 +29,7 @@ class LocalShopsService
     {
         /** @var EntityRepositoryInterface $localShopsRepository */
         $localShopRepository = $this->container->get('local_shop.repository');
+
 
         // @TODO
         /*
@@ -41,7 +50,13 @@ class LocalShopsService
      */
     public function getLocalShopsProductStock($productId)
     {
+        $context = Context::createDefaultContext();
+
         // @TODO
+        $criteria = new Criteria();
+        $criteria->addFilter(new EqualsFilter('productId', $productId));
+
+        $lineItems = $this->localShopsProductRepository->search($criteria, $context);
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Crehler\LocalShopsPlugin\Entity;
+namespace Crehler\LocalShopsPlugin\Entity\LocalShop;
 
 use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
 

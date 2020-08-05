@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Crehler\LocalShopsPlugin\Entity;
+namespace Crehler\LocalShopsPlugin\Entity\LocalShop;
 
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityIdTrait;
