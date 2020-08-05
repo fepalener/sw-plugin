@@ -14,7 +14,13 @@
             "addressZipCodeLabel": "Zip Code",
             "addressStreetLabel": "Street",
             "addressBuildingNumberLabel": "Building No.",
-            "contactPhoneLabel": "Phone"
+            "contactPhoneLabel": "Phone",
+
+            "assignProductsLabel": "Assign products",
+            "cancelButtonText": "Cancel",
+            "saveButtonText": "Save",
+
+            "errorTitle": "Error saving the item"
         }
     }
 }

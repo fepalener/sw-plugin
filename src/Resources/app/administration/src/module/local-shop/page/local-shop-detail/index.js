@@ -3,7 +3,7 @@ import template from './local-shop-detail.html.twig';
 const {Component, Mixin} = Shopware;
 
 Component.register('local-shop-detail', {
-    template,
+    template: template,
 
     inject: [
         'repositoryFactory'

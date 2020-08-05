@@ -4,13 +4,14 @@ const {Component} = Shopware;
 const {Criteria} = Shopware.Data;
 
 Component.register('local-shop-list', {
-    template,
+    template: template,
 
     inject: [
         'repositoryFactory'
     ],
 
     data() {
+        // Initial state
         return {
             repository: null,
             entities: null
