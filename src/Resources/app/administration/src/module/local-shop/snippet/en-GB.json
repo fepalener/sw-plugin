@@ -1,0 +1,20 @@
+{
+    "local-shop": {
+        "general": {
+            "mainMenuItemGeneral": "Local shops",
+            "descriptionTextModule": "Manage local shops."
+        },
+        "list": {
+            "addButtonText": "Add local shop",
+            "columnName": "Name"
+        },
+        "detail": {
+            "nameLabel": "Name",
+            "addressCityLabel": "City",
+            "addressZipCodeLabel": "Zip Code",
+            "addressStreetLabel": "Street",
+            "addressBuildingNumberLabel": "Building No.",
+            "contactPhoneLabel": "Phone"
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "local-shop": {
+        "general": {
+            "mainMenuItemGeneral": "Local shops",
+            "descriptionTextModule": "Manage local shops."
+        }
+    }
+}

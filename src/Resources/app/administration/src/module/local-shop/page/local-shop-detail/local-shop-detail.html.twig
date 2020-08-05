@@ -1,0 +1,39 @@
+{% block local_shop_detail %}
+<sw-page class="local-shop-detail">
+    <template slot="smart-bar-actions">
+        <sw-button :routerLink="{ name: 'local.shop.list' }">
+            {{ $t('local-shop.detail.cancelButtonText') }}
+        </sw-button>
+
+        <sw-button-process
+            :isLoading="isLoading"
+            :processSuccess="processSuccess"
+            variant="primary"
+            @process-finish="saveFinish"
+            @click="onClickSave">
+            {{ $t('local-shop.detail.saveButtonText') }}
+        </sw-button-process>
+    </template>
+
+    <template slot="content">
+        <sw-card-view>
+            <sw-card v-if="entity" :isLoading="isLoading">
+                <sw-field :label="$t('local-shop.detail.nameLabel')" v-model="entity.name"></sw-field>
+                <sw-field :label="$t('local-shop.detail.addressCityLabel')" v-model="entity.addressCity"></sw-field>
+                <sw-field :label="$t('local-shop.detail.addressZipCodeLabel')" v-model="entity.addressZipCode"></sw-field>
+                <sw-field :label="$t('local-shop.detail.addressStreetLabel')" v-model="entity.addressStreet"></sw-field>
+                <sw-field :label="$t('local-shop.detail.addressBuildingNumberLabel')" v-model="entity.addressBuildingNumber"></sw-field>
+                <sw-field :label="$t('local-shop.detail.contactPhoneLabel')" v-model="entity.contactPhone"></sw-field>
+
+                {#
+                <sw-entity-many-to-many-select
+                    :localMode="entity.isNew()"
+                    :label="$t('local-shop.detail.assignProductsLabel')"
+                    v-model="entity.products">
+                </sw-entity-many-to-many-select>
+                #}
+            </sw-card>
+        </sw-card-view>
+    </template>
+</sw-page>
+{% endblock %}

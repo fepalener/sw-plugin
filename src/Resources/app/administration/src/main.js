@@ -1,2 +1,2 @@
-import '.page/local-shop';
+import './module/local-shop';
 
