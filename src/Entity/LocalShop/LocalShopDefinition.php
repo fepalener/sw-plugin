@@ -2,12 +2,18 @@
 
 namespace Crehler\LocalShopsPlugin\Entity\LocalShop;
 
+use Shopware\Core\Content\Product\ProductDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\PrimaryKey;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Required;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToManyAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\IdField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\CreatedAtField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\UpdatedAtField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
+
+use Crehler\LocalShopsPlugin\Entity\LocalShopProduct\LocalShopProductDefinition;
 
 class LocalShopDefinition extends EntityDefinition
 {
@@ -37,7 +43,12 @@ class LocalShopDefinition extends EntityDefinition
             new StringField('address_zip_code', 'addressZipCode', 32),
             new StringField('address_street', 'addressStreet', 255),
             new StringField('address_building_number', 'addressBuildingNumber', 32),
-            new StringField('contact_phone', 'contactPhone', 16)
+            new StringField('contact_phone', 'contactPhone', 16),
+
+            new CreatedAtField(),
+            new UpdatedAtField(),
+
+            new ManyToManyAssociationField('products', ProductDefinition::class, LocalShopProductDefinition::class, 'local_shop_id', 'product_id'),
         ]);
     }
 }

@@ -8,9 +8,11 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\FkField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\PrimaryKey;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Required;
-use Shopware\Core\Framework\DataAbstractionLayer\Field\IdField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\IntField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToOneAssociationField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\ReferenceVersionField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\CreatedAtField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\UpdatedAtField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
 
 class LocalShopProductDefinition extends EntityDefinition
@@ -42,14 +44,17 @@ class LocalShopProductDefinition extends EntityDefinition
     protected function defineFields(): FieldCollection
     {
         return new FieldCollection([
-            (new IdField('id', 'id'))->addFlags(new PrimaryKey(), new Required()),
-            (new FkField('local_shop_id', 'localShopId', LocalShopDefinition::class))->addFlags(new Required()),
-            (new FkField('product_id', 'productId', ProductDefinition::class))->addFlags(new Required()),
+            (new FkField('local_shop_id', 'localShopId', LocalShopDefinition::class))->addFlags(new PrimaryKey(), new Required()),
+            (new FkField('product_id', 'productId', ProductDefinition::class))->addFlags(new PrimaryKey(), new Required()),
+            (new ReferenceVersionField(ProductDefinition::class))->addFlags(new PrimaryKey(), new Required()),
 
             (new IntField('quantity', 'quantity'))->addFlags(new Required()),
 
-            new ManyToOneAssociationField('local_shop', 'local_shop_id', LocalShopDefinition::class, 'id', false),
-            new ManyToOneAssociationField('product', 'product_id', ProductDefinition::class, 'id', false),
+            new ManyToOneAssociationField('localShop', 'local_shop_id', LocalShopDefinition::class),
+            new ManyToOneAssociationField('product', 'product_id', ProductDefinition::class),
+
+            new CreatedAtField(),
+            new UpdatedAtField()
         ]);
     }
 }

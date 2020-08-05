@@ -4,10 +4,16 @@ namespace Crehler\LocalShopsPlugin\Entity\LocalShop;
 
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityIdTrait;
+use Shopware\Core\Content\Product\ProductCollection;
 
 class LocalShopEntity extends Entity
 {
     use EntityIdTrait;
+
+    /**
+     * @var string
+     */
+    protected $name;
 
     /**
      * @var string
@@ -35,9 +41,9 @@ class LocalShopEntity extends Entity
     protected $contactPhone;
 
     /**
-     * @var string
+     * @var ProductCollection|null
      */
-    protected $name;
+    protected $products;
 
     /**
      * @return string
@@ -133,5 +139,21 @@ class LocalShopEntity extends Entity
     public function setContactPhone(string $contactPhone): void
     {
         $this->contactPhone = $contactPhone;
+    }
+
+    /**
+     * @return ProductCollection|null
+     */
+    public function getProducts(): ?ProductCollection
+    {
+        return $this->products;
+    }
+
+    /**
+     * @param ProductCollection $products
+     */
+    public function setProducts(ProductCollection $products): void
+    {
+        $this->products = $products;
     }
 }
