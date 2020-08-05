@@ -5,11 +5,15 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="Crehler\LocalShopsPlugin\Entity\LocalShopDefinition">
+        <service id="Crehler\LocalShopsPlugin\Entity\LocalShop\LocalShopDefinition">
             <tag name="shopware.entity.definition" entity="local_shop"/>
+        </service>
+        <service id="Crehler\LocalShopsPlugin\Entity\LocalShopProduct\LocalShopProductDefinition">
+            <tag name="shopware.entity.definition" entity="local_shop_product"/>
         </service>
         <service id="Crehler\LocalShopsPlugin\Service\LocalShopsService">
             <argument type="service" id="local_shop.repository"/>
+            <argument type="service" id="local_shop_product.repository"/>
         </service>
     </services>
 </container>
