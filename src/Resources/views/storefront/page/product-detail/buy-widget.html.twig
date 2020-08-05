@@ -3,10 +3,12 @@
 {% block page_product_detail_ordernumber_container %}
     {{ parent() }}
 
-    {%  if page.extensions.local_shops_list %}
+    {%  if page.extensions.local_shops_list|length > 0 %}
         <h3>Local shop availability</h3>
         <div class="col-md-4">
-            {{ dump(page.extensions.local_shops_list) }}
+            {% for localShopProduct in page.extensions.local_shops_list %}
+                <p>{{ localShopProduct.localShop.name }} - <span class="label">{{ localShopProduct.quantity }}</span></p>
+            {% endfor %}
         </div>
     {%  endif %}
 

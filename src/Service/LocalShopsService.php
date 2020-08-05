@@ -48,11 +48,12 @@ class LocalShopsService
      */
     public function getLocalShopsProductAvailability($productId, Context $context)
     {
-        return $this->localShopsRepository->search(
+        return $this->localShopsProductRepository->search(
             (new Criteria())
-                ->addAssociation('products')
-                ->addFilter(new EqualsFilter('products.id', $productId))
-            , $context
+                ->addAssociation('localShop')
+                ->addAssociation('product')
+                ->addFilter(new EqualsFilter('product.id', $productId)),
+            $context
         );
     }
 
