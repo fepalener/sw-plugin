@@ -1,6 +1,6 @@
 Shopware.Component.extend('local-shop-create', 'local-shop-detail', {
     methods: {
-        getBundle() {
+        getEntity() {
             this.entity = this.repository.create(Shopware.Context.api);
         },
 
