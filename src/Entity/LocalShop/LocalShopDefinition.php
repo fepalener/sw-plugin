@@ -37,7 +37,7 @@ class LocalShopDefinition extends EntityDefinition
             new StringField('address_zip_code', 'addressZipCode', 32),
             new StringField('address_street', 'addressStreet', 255),
             new StringField('address_building_number', 'addressBuildingNumber', 32),
-            new StringField('contactPhone', 'contactPhone', 16)
+            new StringField('contact_phone', 'contactPhone', 16)
         ]);
     }
 }

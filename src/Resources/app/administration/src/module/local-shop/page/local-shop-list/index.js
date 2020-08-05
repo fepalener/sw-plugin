@@ -61,9 +61,9 @@ Component.register('local-shop-list', {
                     allowResize: true,
                 },
                 {
-                    property: 'addressContactPhone',
-                    dataIndex: 'addressContactPhone',
-                    label: this.$t('local-shop.list.columnAddressContactPhone'),
+                    property: 'contactPhone',
+                    // dataIndex: 'contactPhone',
+                    label: this.$t('local-shop.list.columnContactPhone'),
                     allowResize: true,
                 }
             ];

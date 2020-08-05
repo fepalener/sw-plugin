@@ -6,7 +6,12 @@
         },
         "list": {
             "addButtonText": "Add local shop",
-            "columnName": "Name"
+            "columnName": "Name",
+            "columnAddressCity": "City",
+            "columnAddressZipCode": "Zip Code",
+            "columnAddressStreet": "Street",
+            "columnAddressBuildingNumber": "Building No.",
+            "columnContactPhone": "Phone"
         },
         "detail": {
             "nameLabel": "Name",

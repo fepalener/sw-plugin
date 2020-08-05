@@ -50,7 +50,7 @@ Component.register('local-shop-detail', {
             this.isLoading = true;
 
             this.repository
-                .save(this.entity, Shopware.context.api)
+                .save(this.entity, Shopware.Context.api)
                 .then(() => {
                     this.getEntity();
                     this.isLoading = false;
