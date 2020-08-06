@@ -4,6 +4,7 @@ namespace Crehler\LocalShopsPlugin\Service;
 
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Aggregation\Metric\CountAggregation;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult;
@@ -60,15 +61,22 @@ class LocalShopsService
     /**
      * Zwrócenie informacji o ilości danego produktu dostępnej w sklepie
      *
-     * @param $localShopId
-     * @param $productId
+     * @param string $localShopId
+     * @param string $productId
+     * @param Context $context
      *
      * @return int
      */
-    public function getLocalShopProductAvailability($localShopId, $productId): int
+    public function getLocalShopProductAvailability($localShopId, $productId, Context $context): int
     {
-        // @TODO
-        return 0;
+        $result = $this->localShopsProductRepository->search(
+            (new Criteria())
+                ->addFilter(new EqualsFilter('localShopId', $localShopId))
+                ->addFilter(new EqualsFilter('productId', $productId)),
+            $context
+        )->get('quantity');
+
+        return (int) $result;
     }
 
 }

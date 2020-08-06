@@ -9,6 +9,10 @@
             <argument type="service" id="Crehler\LocalShopsPlugin\Service\LocalShopsService"/>
             <tag name="kernel.event_subscriber"/>
         </service>
+        <service id="Crehler\LocalShopsPlugin\Storefront\Subscriber\CheckoutSubscriber">
+            <argument type="service" id="Crehler\LocalShopsPlugin\Service\LocalShopsService"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
         <service id="Crehler\LocalShopsPlugin\Storefront\Subscriber\FooterSubscriber">
             <argument type="service" id="Crehler\LocalShopsPlugin\Service\LocalShopsService"/>
             <tag name="kernel.event_subscriber"/>
