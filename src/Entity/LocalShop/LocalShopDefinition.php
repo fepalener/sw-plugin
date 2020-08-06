@@ -7,8 +7,6 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\PrimaryKey;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Required;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToManyAssociationField;
-use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToOneAssociationField;
-use Shopware\Core\Framework\DataAbstractionLayer\Field\OneToManyAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\IdField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\CreatedAtField;
@@ -51,7 +49,6 @@ class LocalShopDefinition extends EntityDefinition
             new UpdatedAtField(),
 
             new ManyToManyAssociationField('products', ProductDefinition::class, LocalShopProductDefinition::class, 'local_shop_id', 'product_id'),
-            //new OneToManyAssociationField('shopProducts', LocalShopProductDefinition::class, 'local_shop_id', 'id')
         ]);
     }
 }

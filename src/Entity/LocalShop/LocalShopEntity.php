@@ -148,9 +148,9 @@ class LocalShopEntity extends Entity
     }
 
     /**
-     * @return ProductCollection|null
+     * @return ProductCollection
      */
-    public function getProducts(): ?ProductCollection
+    public function getProducts(): ProductCollection
     {
         return $this->products;
     }
